@@ -12,7 +12,7 @@ import {
   backgroundFragmentShader
 } from './shaders';
 
-export const ThreeScene = React.forwardRef<SceneRef>((props, ref) => {
+export const ThreeScene = React.forwardRef<SceneRef>((_, ref) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const activePhotoIndexRef = useRef(0);
   const lastGestureRef = useRef<HandGesture>('NONE');
@@ -319,4 +319,5 @@ export const ThreeScene = React.forwardRef<SceneRef>((props, ref) => {
   }));
 
   return <div ref={containerRef} className="absolute inset-0 z-0 bg-black" />;
+
 });
