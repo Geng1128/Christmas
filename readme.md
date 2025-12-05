@@ -53,60 +53,6 @@ npm run build
 npm run preview
 ```
 
-## 📦 部署到 GitHub Pages
-
-### 方法一：使用 GitHub Actions（推荐）
-
-1. 在仓库根目录创建 `.github/workflows/deploy.yml`：
-
-```yaml
-name: Deploy to GitHub Pages
-
-on:
-  push:
-    branches: [ main ]
-
-jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18'
-          
-      - name: Install dependencies
-        run: npm install
-        
-      - name: Build
-        run: npm run build
-        
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
-```
-
-2. 在 `vite.config.ts` 中设置正确的 `base`：
-
-```typescript
-export default defineConfig({
-  plugins: [react()],
-  base: '/你的仓库名/',  // 例如：'/christmas-tree/'
-});
-```
-
-3. 在 GitHub 仓库设置中启用 GitHub Pages，选择 `gh-pages` 分支
-
-### 方法二：手动部署
-
-```bash
-npm run build
-# 将 dist 文件夹内容上传到 GitHub Pages
-```
 
 ## 🛠️ 技术栈
 
@@ -139,5 +85,6 @@ npm run build
 MIT License
 
 ## 🎉 Merry Christmas!
+
 
 祝你圣诞快乐！🎄✨
